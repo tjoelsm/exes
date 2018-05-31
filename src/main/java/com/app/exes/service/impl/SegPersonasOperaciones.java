@@ -23,8 +23,7 @@ public class SegPersonasOperaciones implements SegPersonasFachada {
 
     @Override
     public SegPersonas findPersonById(int numeroPersona) {
-
-        return null;
+        return personasRepository.findByClave_CodPersona(numeroPersona);
     }
 
     @Override
@@ -32,7 +31,11 @@ public class SegPersonasOperaciones implements SegPersonasFachada {
         SegPersonas result = null;
         try {
            // validar que el email no existe.
-            result = personasRepository.save(persona);
+            if(personasRepository.findByEmail(persona.getEmail()) == null) {
+                result = personasRepository.save(persona);
+            } else{
+                return 409;
+            }
         }catch (TransientDataAccessException e){
             LOGGER.error("##### ERROR TransientDataAccessException ####" + e.getMessage());
             return 500;
