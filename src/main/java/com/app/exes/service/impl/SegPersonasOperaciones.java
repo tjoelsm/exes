@@ -31,7 +31,7 @@ public class SegPersonasOperaciones implements SegPersonasFachada {
     public int insertPerson(SegPersonas persona) {
         SegPersonas result = null;
         try {
-           // if (personasRepository.findByEmail(persona))
+           // validar que el email no existe.
             result = personasRepository.save(persona);
         }catch (TransientDataAccessException e){
             LOGGER.error("##### ERROR TransientDataAccessException ####" + e.getMessage());
