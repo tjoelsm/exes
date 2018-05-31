@@ -1,0 +1,21 @@
+#logging.level.root: DEBUG
+#logging.level.org.springframework.web: DEBUG
+logging.level.org.springframework.ws: TRACE
+spring:
+  profiles:
+    active:
+    - dev
+  jackson:
+    time-zone: Europe/Madrid
+  datasource:
+    url: jdbc:mysql://localhost:3306/TIAADM?useSSL=false
+    username: root
+    password: tiago123
+    driver-class-name: com.mysql.jdbc.Driver
+    test-while-idle: true
+    test-on-borrow: false
+    validationQuery: SELECT 1
+    jpa.show-sql: true
+    jpa.hibernate.dialect: org.hibernate.dialect.MySQLDialect
+    jpa.properties.hibernate.format_sql: true
+    jpa.properties.hibernate.type: trace
