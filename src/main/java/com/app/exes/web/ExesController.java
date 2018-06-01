@@ -24,7 +24,7 @@ public class ExesController {
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "addUser")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> newUser(@RequestParam(name="user") SegPersonas dataPerson) {
+    public ResponseEntity<?> newUser(@RequestBody SegPersonas dataPerson) {
         int result = personasService.addNewUser(dataPerson);
         switch (result){
             case 200:  return new ResponseEntity<>(HttpStatus.CREATED);

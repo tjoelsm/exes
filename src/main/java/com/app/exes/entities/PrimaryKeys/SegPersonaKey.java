@@ -13,7 +13,6 @@ public class SegPersonaKey implements Serializable {
 
     private static final long serialVersionUID=1;
 
-    @Id
     @Column(name = "TIA01_COD_PERSONA")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int codPersona;
