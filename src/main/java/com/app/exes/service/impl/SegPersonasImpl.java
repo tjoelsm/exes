@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class SegPersonasOperaciones implements SegPersonasFachada {
+public class SegPersonasImpl implements SegPersonasFachada {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SegPersonasOperaciones.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SegPersonasImpl.class);
 
     @Autowired
     private SegPersonasRepository personasRepository;
