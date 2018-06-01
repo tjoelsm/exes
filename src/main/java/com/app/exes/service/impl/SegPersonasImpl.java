@@ -31,7 +31,7 @@ public class SegPersonasImpl implements SegPersonasService {
         SegPersonas result = null;
         try {
            // validar que el email no existe.
-            if(personasRepository.findByEmail(persona.getEmail()) == null) {
+            if(personasRepository.findByEmail(persona.getEmail())==null) {
                 result = personasRepository.save(persona);
             } else{
                 return 409;
