@@ -2,7 +2,7 @@ package com.app.exes.service.impl;
 
 import com.app.exes.entities.dao.SegPersonas;
 import com.app.exes.repositories.SegPersonasRepository;
-import com.app.exes.service.itf.SegPersonasFachada;
+import com.app.exes.service.services.SegPersonasService;
 import org.hibernate.exception.SQLGrammarException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class SegPersonasImpl implements SegPersonasFachada {
+public class SegPersonasImpl implements SegPersonasService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SegPersonasImpl.class);
 
@@ -27,7 +27,7 @@ public class SegPersonasImpl implements SegPersonasFachada {
     }
 
     @Override
-    public int insertPerson(SegPersonas persona) {
+    public int addNewUser(SegPersonas persona) {
         SegPersonas result = null;
         try {
            // validar que el email no existe.
