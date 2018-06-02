@@ -21,7 +21,7 @@ spring:
   jpa.properties.hibernate.type: trace
 security:
   basic:
-    enabled: true
+    enabled: false
   user:
     name: tjoelsm
     password: sapo
