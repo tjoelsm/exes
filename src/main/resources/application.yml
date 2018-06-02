@@ -4,7 +4,7 @@ logging.level.org.springframework.ws: TRACE
 spring:
   profiles:
     active:
-    - dev
+    - openshift
   jackson:
     time-zone: Europe/Madrid
   datasource:
