@@ -24,8 +24,8 @@ public class ExesController {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getName(@RequestParam(name="name") String name) {
-        return new ResponseEntity<>(name,HttpStatus.OK);
+    public String getName(@RequestParam(name="name") String name) {
+        return "{\"Name\":\""+name+"\"}";
     }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "addUser")

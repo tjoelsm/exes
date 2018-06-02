@@ -19,3 +19,16 @@ spring:
   jpa.hibernate.dialect: org.hibernate.dialect.MySQLDialect
   jpa.properties.hibernate.format_sql: true
   jpa.properties.hibernate.type: trace
+security:
+  basic:
+    enabled: true
+  user:
+    name: tjoelsm
+    password: sapo
+  whiteList:
+    - /admin/health
+    - /**
+management:
+  context-path: /admin
+  security:
+    enabled: false
