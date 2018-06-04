@@ -12,6 +12,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,8 +25,9 @@ public class ExesController {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public String getName(@RequestParam(name="name") String name) {
-        return "{\"Name\":\""+name+"\"}";
+    public ResponseEntity<?> getNamePersonByEmail(@NotNull @RequestParam(name="email") String email) {
+        SegPersonas result = personasService.findPersonByEmail(email);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "addUser")

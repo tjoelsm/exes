@@ -27,11 +27,16 @@ public class SegPersonasImpl implements SegPersonasService {
     }
 
     @Override
+    public SegPersonas findPersonByEmail(String email) {
+        return personasRepository.findByClave_Email(email);
+    }
+
+    @Override
     public int addNewUser(SegPersonas persona) {
         SegPersonas result = null;
         try {
            // validar que el email no existe.
-            if(personasRepository.findByEmail(persona.getEmail())==null) {
+            if(personasRepository.findByEmail(persona.getClave().getEmail())==null) {
                 result = personasRepository.save(persona);
             } else{
                 return 409;

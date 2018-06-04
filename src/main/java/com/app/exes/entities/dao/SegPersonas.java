@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.Date;
 
 @Entity
 @Table(name="TIA_SEG_PERSONAS")
@@ -21,8 +22,12 @@ public class SegPersonas {
     @Column(name = "TIA01_APELLIDOS")
     private String apellidosPersona;
 
-    @Column(name = "TIA01_DIRELEC")
-    @NotNull
-    @Pattern(regexp = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", message = "The E-mail address is not valid. Please verify E-mail introduced")
-    private String email;
+    @Column(name = "TIA01_ULTIMO_ACCESS")
+    private Date ultimoAcceso;
+
+    @Column(name = "TIA01_LOGIN_PASS")
+    private String pass;
+
+
+
 }

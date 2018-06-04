@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @EqualsAndHashCode
@@ -17,4 +19,8 @@ public class SegPersonaKey implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int codPersona;
 
+    @Column(name = "TIA01_DIRELEC")
+    @NotNull
+    @Pattern(regexp = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", message = "The E-mail address is not valid. Please verify E-mail introduced")
+    private String email;
 }
