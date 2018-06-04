@@ -8,10 +8,12 @@ spring:
   jackson:
     time-zone: Europe/Madrid
   datasource:
-    url: jdbc:mysql://localhost:3306/TIAADM?useSSL=false
-    username: root
-    password: tiago123
-    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:h2:mem:TIAADM;MVCC=true;DB_CLOSE_DELAY=-1;MODE=MYSQL;DB_CLOSE_ON_EXIT=TRUE
+    username: "sa"
+    password:
+    driver-class-name: org.h2.Driver
+    platform: h2
+    initialize: true
     test-while-idle: true
     test-on-borrow: false
     validationQuery: SELECT 1
