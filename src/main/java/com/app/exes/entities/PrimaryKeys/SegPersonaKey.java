@@ -20,7 +20,6 @@ public class SegPersonaKey implements Serializable {
     private int codPersona;
 
     @Column(name = "TIA01_DIRELEC")
-    @NotNull
     @Pattern(regexp = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", message = "The E-mail address is not valid. Please verify E-mail introduced")
     private String email;
 }

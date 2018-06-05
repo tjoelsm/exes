@@ -10,9 +10,6 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface SegPersonasRepository extends CrudRepository<SegPersonas, SegPersonaKey> {
-
     SegPersonas findByClave_CodPersona(int codigoPersona);
     SegPersonas findByClave_Email(String email);
-    SegPersonas findByEmail(String email);
-
 }
