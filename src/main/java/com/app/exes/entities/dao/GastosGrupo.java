@@ -16,9 +16,6 @@ public class GastosGrupo {
     @EmbeddedId
     private GastosGrupoKey clave;
 
-    @Column(name = "TAP03_COD_TIPOGASTO")
-    private String codTipoGasto;
-
     @Column(name = "TAP03_NOMBRE_GRUPO")
     private String nombre;
 }

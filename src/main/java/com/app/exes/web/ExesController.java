@@ -112,7 +112,7 @@ public class ExesController {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "getMonths")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getMonths(@RequestParam(name="month") String mes) {
+    public ResponseEntity<?> getMonths(String mes) {
         Iterable<Meses> resultList = null;
         Meses result = null;
        if(mes!=null) {
