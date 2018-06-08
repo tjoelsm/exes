@@ -27,7 +27,11 @@ public class ExesController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> getNamePersonByEmail(@NotNull @RequestParam(name="email") String email) {
         SegPersonas result = personasService.findPersonByEmail(email);
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        if(result != null) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        } else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "addUser")

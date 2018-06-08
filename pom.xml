@@ -191,7 +191,7 @@
                     <include>**/*.yml</include>
                     <include>**/*.yaml</include>
                     <include>**/banner.txt</include>
-                    <include>**/schemas/schema-h2.sql</include>
+                    <include>**/schema-h2.sql</include>
                 </includes>
             </resource>
         </resources>

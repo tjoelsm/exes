@@ -28,7 +28,7 @@ public class SegPersonasImpl implements SegPersonasService {
 
     @Override
     public SegPersonas findPersonByEmail(String email) {
-        return personasRepository.findByClave_Email(email);
+            return personasRepository.findByClave_Email(email);
     }
 
     @Override

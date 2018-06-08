@@ -10,7 +10,7 @@ spring:
   datasource:
     url: jdbc:h2:mem:TIAADM;MVCC=true;DB_CLOSE_DELAY=-1;MODE=MYSQL;DB_CLOSE_ON_EXIT=TRUE
     username: "sa"
-    password:
+    password: "sapo"
     driver-class-name: org.h2.Driver
     platform: h2
     initialize: true
