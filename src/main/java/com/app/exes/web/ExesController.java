@@ -1,14 +1,8 @@
 package com.app.exes.web;
 
 
-import com.app.exes.entities.dao.GastosMensuales;
-import com.app.exes.entities.dao.IngresoMesuales;
-import com.app.exes.entities.dao.Meses;
-import com.app.exes.entities.dao.SegPersonas;
-import com.app.exes.service.services.GastosMensualesService;
-import com.app.exes.service.services.IngresoMesualesService;
-import com.app.exes.service.services.MesService;
-import com.app.exes.service.services.SegPersonasService;
+import com.app.exes.entities.dao.*;
+import com.app.exes.service.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -37,6 +32,9 @@ public class ExesController {
 
     @Autowired
     MesService mesService;
+
+    @Autowired
+    BancoService bancoService;
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
@@ -126,6 +124,18 @@ public class ExesController {
         } else if (resultList != null) {
             return new ResponseEntity<>(resultList, HttpStatus.OK);
        } else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "getBanks")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<?> getBanks() {
+        List<Banco> result = null;
+        result = bancoService.getAllBanks();
+        if(result != null) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        } else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
