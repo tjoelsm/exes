@@ -24,12 +24,12 @@ spring:
   #jpa.hibernate.ddl-auto: none
   h2.console.enabled: true
   h2.console.path: /h2
-security:
-  basic:
-    enabled: false
-  user:
-    name: tjoelsm
-    password: sapo
+  security:
+    basic:
+      enabled: false
+    user:
+      name: tjoelsm
+      password: sapo
   whiteList:
     - /admin/health
     - /**
