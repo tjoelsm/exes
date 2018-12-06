@@ -24,8 +24,5 @@ spring:
   whiteList:
     - /admin/health
     - /**
-management:
-  context-path: /admin
-  security:
-    enabled: false
+management.security.enabled: false
 security.basic.enabled: false
