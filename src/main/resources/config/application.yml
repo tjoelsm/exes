@@ -2,9 +2,6 @@
 #logging.level.org.springframework.web: DEBUG
 logging.level.org.springframework.ws: TRACE
 spring:
-  profiles:
-    active:
-    - dev
   jackson:
     time-zone: Europe/Madrid
   datasource:

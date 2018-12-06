@@ -3,6 +3,8 @@ package com.app.exes.web;
 
 import com.app.exes.entities.dao.*;
 import com.app.exes.service.services.*;
+import com.app.exes.util.Cosntants;
+import com.app.exes.util.NotHtml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -38,12 +40,12 @@ public class ExesController {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getNamePersonByEmail(@NotNull @RequestParam(name="email") String email) {
+    public ResponseEntity<?> getNamePersonByEmail(@NotNull @NotHtml @RequestParam(name="email") String email) {
         SegPersonas result = personasService.findPersonByEmail(email);
         if(result != null) {
             return new ResponseEntity<>(result, HttpStatus.OK);
         } else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(Cosntants.EMAIL_NO_EXIST, HttpStatus.NOT_FOUND);
         }
     }
 

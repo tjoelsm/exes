@@ -200,6 +200,7 @@
                     <include>**/*.yaml</include>
                     <include>**/banner.txt</include>
                     <include>**/schema-h2.sql</include>
+					<include>**/insert.sql</include>
                 </includes>
             </resource>
         </resources>
