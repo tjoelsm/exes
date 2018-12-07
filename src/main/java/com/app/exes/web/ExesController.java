@@ -5,6 +5,7 @@ import com.app.exes.entities.dao.*;
 import com.app.exes.service.services.*;
 import com.app.exes.util.Cosntants;
 import com.app.exes.util.NotHtml;
+import com.app.exes.util.SecurityValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.HashMap;
@@ -38,14 +40,22 @@ public class ExesController {
     @Autowired
     BancoService bancoService;
 
+    @Autowired
+    SecurityValidation validarHeaders;
+
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getNamePersonByEmail(@NotNull @NotHtml @RequestParam(name="email") String email) {
-        SegPersonas result = personasService.findPersonByEmail(email);
-        if(result != null) {
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } else{
-            return new ResponseEntity<>(Cosntants.EMAIL_NO_EXIST, HttpStatus.NOT_FOUND);
+    public ResponseEntity<?> getNamePersonByEmail(@NotNull @NotHtml @RequestParam(name="email") String email,
+                                                  HttpServletRequest header) {
+        if (validarHeaders.realizarSeguridad(header)) {
+            SegPersonas result = personasService.findPersonByEmail(email);
+            if(result != null) {
+                return new ResponseEntity<>(result, HttpStatus.OK);
+            } else{
+                    return new ResponseEntity<>(Cosntants.EMAIL_NO_EXIST, HttpStatus.NOT_FOUND);
+                }
+        }else {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED); //401
         }
     }
 
