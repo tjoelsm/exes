@@ -5,22 +5,20 @@ spring:
   jackson:
     time-zone: Europe/Madrid
   datasource:
-    url: jdbc:h2:mem:TIAADM;MVCC=true;DB_CLOSE_DELAY=-1;MODE=MYSQL;DB_CLOSE_ON_EXIT=TRUE
-    username: "sa"
-    password: ""
-    driver-class-name: org.h2.Driver
-    platform: h2
-    initialize: true
+    url: jdbc:mysql://mysql:3306/exesDB?useSSL=false
+    username: "root"
+    password: "tiago123"
+    driver-class-name: com.mysql.cj.jdbc.Driver
     test-while-idle: true
     test-on-borrow: false
     validationQuery: SELECT 1
+  jpa.database-platform: org.hibernate.dialect.MySQL5Dialect
   jpa.show-sql: true
   jpa.hibernate.dialect: org.hibernate.dialect.MySQLDialect
   jpa.properties.hibernate.format_sql: true
   jpa.properties.hibernate.type: trace
-  #jpa.hibernate.ddl-auto: none
-  h2.console.enabled: true
-  h2.console.path: /h2
+  #jpa.properties.hibernate.default_schema: exesDB
+  jpa.hibernate.ddl-auto: none
   whiteList:
     - /admin/health
     - /**
