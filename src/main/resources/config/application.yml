@@ -22,6 +22,7 @@ spring:
     - /admin/health
     - /**
 management.security.enabled: false
+management.endpoints.web.cors.allowed-origins: http://localhost:4200
 security.basic.enabled: false
 headers:
   autorizado: eulusi
