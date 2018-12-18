@@ -6,4 +6,5 @@ public interface SegPersonasService {
     SegPersonas findPersonById(int numeroPersona);
     SegPersonas findPersonByEmail(String email);
     int addNewUser(SegPersonas persona);
+    boolean autenticateUser(String username, String password);
 }

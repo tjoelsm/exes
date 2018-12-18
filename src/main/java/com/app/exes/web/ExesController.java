@@ -2,6 +2,7 @@ package com.app.exes.web;
 
 
 import com.app.exes.entities.dao.*;
+import com.app.exes.entities.request.AutenticateUserRequest;
 import com.app.exes.service.services.*;
 import com.app.exes.util.Cosntants;
 import com.app.exes.util.NotHtml;
@@ -55,6 +56,22 @@ public class ExesController {
             } else{
                     return new ResponseEntity<>(Cosntants.EMAIL_NO_EXIST, HttpStatus.NOT_FOUND);
                 }
+        }else {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED); //401
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<?> autenticateUser(@NotNull @NotHtml @Valid @RequestBody AutenticateUserRequest entrada,
+                                             HttpServletRequest header) {
+        if (validarHeaders.realizarSeguridad(header)) {
+            boolean result = personasService.autenticateUser(entrada.getEmail(), entrada.getPassword());
+            if(result) {
+                return new ResponseEntity<>(HttpStatus.OK);
+            } else{
+                return new ResponseEntity<>(Cosntants.USUARIO_NO_AUTORIZADO, HttpStatus.UNAUTHORIZED);
+            }
         }else {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED); //401
         }
