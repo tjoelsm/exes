@@ -75,11 +75,22 @@ public class SegPersonasImpl implements SegPersonasService {
 
     @Override
     public boolean autenticateUser(String username, String password) {
-        SegPersonas result = personasRepository.findByClave_EmailAndPass(username, password);
 
-        if (result!=null){
-            return true;
+        SegPersonas result = null;
+        try {
+            result = personasRepository.findByClave_EmailAndPass(username, getEncode(password));
+            if (result!=null){
+                return true;
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
         }
+
+
         return false;
     }
 
