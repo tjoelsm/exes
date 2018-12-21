@@ -63,4 +63,14 @@ public class SegPersonasImpl implements SegPersonasService {
             return 404;
         }
     }
+
+    @Override
+    public boolean autenticateUser(String username, String password) {
+        SegPersonas result = personasRepository.findByClave_EmailAndPass(username, password);
+
+        if (result!=null){
+            return true;
+        }
+        return false;
+    }
 }
