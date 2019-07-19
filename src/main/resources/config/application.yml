@@ -1,13 +1,13 @@
 #logging.level.root: DEBUG
 #logging.level.org.springframework.web: DEBUG
-logging.level.org.springframework.ws: TRACE
+#logging.level.org.springframework.ws: TRACE
 spring:
   jackson:
     time-zone: Europe/Madrid
   datasource:
-    url: jdbc:mysql://mysql:3306/exesDB?useSSL=false
+    url: jdbc:mysql://10.100.19.133/exesDB?useSSL=false
     username: "root"
-    password: "tiago123"
+    password: "4WOKhFSSNF"
     driver-class-name: com.mysql.cj.jdbc.Driver
     test-while-idle: true
     test-on-borrow: false
