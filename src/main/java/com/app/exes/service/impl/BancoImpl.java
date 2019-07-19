@@ -4,6 +4,7 @@ import com.app.exes.entities.dao.Banco;
 import com.app.exes.repositories.BancoRepository;
 import com.app.exes.service.services.BancoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
