@@ -69,6 +69,7 @@ public class ExesController {
                                              HttpServletRequest header) {
         if (validarHeaders.realizarSeguridad(header)) {
             boolean result = personasService.autenticateUser(entrada.getEmail(), entrada.getPassword());
+
             if(result) {
                 return new ResponseEntity<>(HttpStatus.OK);
             } else{
