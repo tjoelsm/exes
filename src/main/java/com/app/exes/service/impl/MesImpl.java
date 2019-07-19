@@ -2,7 +2,7 @@ package com.app.exes.service.impl;
 
 import com.app.exes.entities.dao.Meses;
 import com.app.exes.repositories.MesRepository;
-import com.app.exes.service.services.MesService;
+import com.app.exes.service.MesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

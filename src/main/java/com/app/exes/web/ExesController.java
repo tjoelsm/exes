@@ -3,7 +3,7 @@ package com.app.exes.web;
 
 import com.app.exes.entities.dao.*;
 import com.app.exes.entities.request.AutenticateUserRequest;
-import com.app.exes.service.services.*;
+import com.app.exes.service.*;
 import com.app.exes.util.Cosntants;
 import com.app.exes.util.NotHtml;
 import com.app.exes.util.SecurityValidation;
@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

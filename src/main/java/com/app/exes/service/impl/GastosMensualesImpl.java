@@ -2,7 +2,7 @@ package com.app.exes.service.impl;
 
 import com.app.exes.entities.dao.GastosMensuales;
 import com.app.exes.repositories.GastosMensualesRepository;
-import com.app.exes.service.services.GastosMensualesService;
+import com.app.exes.service.GastosMensualesService;
 import org.hibernate.exception.SQLGrammarException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

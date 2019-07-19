@@ -2,7 +2,7 @@ package com.app.exes.service.impl;
 
 import com.app.exes.entities.dao.SegPersonas;
 import com.app.exes.repositories.SegPersonasRepository;
-import com.app.exes.service.services.SegPersonasService;
+import com.app.exes.service.SegPersonasService;
 import org.hibernate.exception.SQLGrammarException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

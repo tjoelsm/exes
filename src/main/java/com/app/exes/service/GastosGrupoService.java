@@ -1,4 +1,4 @@
-package com.app.exes.service.services;
+package com.app.exes.service;
 
 public interface GastosGrupoService {
 }

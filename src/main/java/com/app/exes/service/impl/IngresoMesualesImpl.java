@@ -2,7 +2,7 @@ package com.app.exes.service.impl;
 
 import com.app.exes.entities.dao.IngresoMesuales;
 import com.app.exes.repositories.IngresoMesualesRepository;
-import com.app.exes.service.services.IngresoMesualesService;
+import com.app.exes.service.IngresoMesualesService;
 import org.hibernate.exception.SQLGrammarException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
