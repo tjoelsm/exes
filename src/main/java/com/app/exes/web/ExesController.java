@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +24,8 @@ import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
-@RestController
-@RequestMapping("/exes")
+@Controller
+//@RequestMapping("exes")
 public class ExesController {
 
     @Autowired
@@ -45,7 +46,7 @@ public class ExesController {
     @Autowired
     SecurityValidation validarHeaders;
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "/")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> getNamePersonByEmail(@NotNull @NotHtml @RequestParam(name="email") String email,
                                                   HttpServletRequest header) {
@@ -61,7 +62,7 @@ public class ExesController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, value = "autenticateUser")
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, value = "/autenticateUser")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> autenticateUser(@NotNull @NotHtml @Valid @RequestBody AutenticateUserRequest entrada,
                                              HttpServletRequest header) {
@@ -78,7 +79,7 @@ public class ExesController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "addUser")
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "/addUser")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> newUser(@RequestBody @Valid SegPersonas dataPerson, BindingResult error) {
         if (!error.hasErrors()) {
@@ -98,7 +99,7 @@ public class ExesController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "newBill")
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "/newBill")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> newBill(@RequestBody @Valid GastosMensuales bill, BindingResult error) {
         if (!error.hasErrors()) {
@@ -119,7 +120,7 @@ public class ExesController {
     }
 
 
-    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "newDeposit")
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "/newDeposit")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> newDeposit(@RequestBody @Valid IngresoMesuales deposit, BindingResult error) {
         if (!error.hasErrors()) {
@@ -139,7 +140,7 @@ public class ExesController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "getMonths")
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "/getMonths")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> getMonths(String mes) {
         Iterable<Meses> resultList = null;
@@ -159,7 +160,7 @@ public class ExesController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "getBanks")
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "/getBanks")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> getBanks() {
         List<Banco> result = null;

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.NonTransientDataAccessException;
 import org.springframework.dao.TransientDataAccessException;
 import org.springframework.jdbc.datasource.init.ScriptException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -19,7 +20,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 
-@Service
+@Component
 public class SegPersonasImpl implements SegPersonasService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SegPersonasImpl.class);
