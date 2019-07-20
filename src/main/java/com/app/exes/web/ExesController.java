@@ -8,6 +8,7 @@ import com.app.exes.util.Cosntants;
 import com.app.exes.util.NotHtml;
 import com.app.exes.util.SecurityValidation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +24,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
-@Controller
-//@RequestMapping("exes")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", allowCredentials = "false")
+@RestController
+@RequestMapping("/exes")
 public class ExesController {
 
     @Autowired
