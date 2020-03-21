@@ -20,6 +20,33 @@ public class SegPersonaKey implements Serializable {
     private int codPersona;
 
     @Column(name = "TIA01_DIRELEC")
-    @Pattern(regexp = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", message = "The E-mail address is not valid. Please verify E-mail introduced")
     private String email;
+
+	/**
+	 * @return the codPersona
+	 */
+	public int getCodPersona() {
+		return codPersona;
+	}
+
+	/**
+	 * @param codPersona the codPersona to set
+	 */
+	public void setCodPersona(int codPersona) {
+		this.codPersona = codPersona;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

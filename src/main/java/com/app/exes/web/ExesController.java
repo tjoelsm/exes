@@ -1,6 +1,7 @@
 package com.app.exes.web;
 
 
+import com.app.exes.dto.SegPersonaDto;
 import com.app.exes.entities.dao.*;
 import com.app.exes.entities.request.AutenticateUserRequest;
 import com.app.exes.service.*;
@@ -52,8 +53,14 @@ public class ExesController {
     public ResponseEntity<?> getNamePersonByEmail(@NotNull @NotHtml @RequestParam(name="email") String email,
                                                   HttpServletRequest header) {
         if (validarHeaders.realizarSeguridad(header)) {
-            SegPersonas result = personasService.findPersonByEmail(email);
-            if(result != null) {
+            SegPersonas resultEntity = personasService.findPersonByEmail(email);        
+            if(resultEntity != null) {
+            	SegPersonaDto result = new SegPersonaDto();   
+                result.setApellidosPersona(resultEntity.getApellidosPersona());
+                result.setCodPersona(resultEntity.getClave().getCodPersona());
+                result.setNombrePersona(resultEntity.getNombrePersona());
+                result.setEmail(resultEntity.getClave().getEmail());
+                result.setUltimoAcceso(resultEntity.getUltimoAcceso()); 
                 return new ResponseEntity<>(result, HttpStatus.OK);
             } else{
                     return new ResponseEntity<>(Cosntants.EMAIL_NO_EXIST, HttpStatus.NOT_FOUND);

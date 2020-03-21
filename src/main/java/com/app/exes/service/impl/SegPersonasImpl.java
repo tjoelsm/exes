@@ -3,6 +3,10 @@ package com.app.exes.service.impl;
 import com.app.exes.entities.dao.SegPersonas;
 import com.app.exes.repositories.SegPersonasRepository;
 import com.app.exes.service.SegPersonasService;
+
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
+
 import org.hibernate.exception.SQLGrammarException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +40,7 @@ public class SegPersonasImpl implements SegPersonasService {
 
     @Override
     public SegPersonas findPersonByEmail(String email) {
+    	    LOGGER.info("#### EMAIL: {} ####", email);
             return personasRepository.findByClave_Email(email);
     }
 
